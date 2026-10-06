@@ -1,4 +1,4 @@
-# Lumina Scholar — AI Learning Assistant
+# Learning Companion — AI Learning Assistant
 
 Lumina Scholar is a full-stack, production-ready AI Learning Assistant and personalized digital tutor built for computer science and engineering students.
 
