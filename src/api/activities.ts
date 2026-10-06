@@ -1,0 +1,1 @@
+export { activitiesApi } from './recommendations';

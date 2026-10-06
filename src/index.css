@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --lumina-primary: #4F46E5;
+    --lumina-primary-dark: #4338CA;
+    --lumina-secondary: #0284C7;
+    --lumina-accent: #7C3AED;
+    --lumina-surface: #FFFFFF;
+    --lumina-canvas: #F8FAFC;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--lumina-canvas);
+    color: #0F172A;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+
+  h1, h2, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  h3, h4 {
+    letter-spacing: -0.015em;
+  }
+
+  .font-mono, .tabular-nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Typography Hierarchy System */
+.type-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.type-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.type-h3 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.type-body {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.type-small {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.type-caption {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.type-code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle Premium Background Graphics */
+.lumina-mesh-bg {
+  background-color: #F8FAFC;
+  background-image:
+    radial-gradient(at 12% 8%, rgba(79, 70, 229, 0.07) 0px, transparent 48%),
+    radial-gradient(at 88% 14%, rgba(2, 132, 199, 0.06) 0px, transparent 45%),
+    radial-gradient(at 52% 88%, rgba(124, 58, 237, 0.05) 0px, transparent 50%);
+}
+
+.lumina-hero-mesh {
+  background-color: #F8FAFC;
+  background-image:
+    radial-gradient(at 20% 15%, rgba(79, 70, 229, 0.11) 0px, transparent 52%),
+    radial-gradient(at 82% 22%, rgba(14, 165, 233, 0.09) 0px, transparent 48%),
+    radial-gradient(at 60% 80%, rgba(124, 58, 237, 0.08) 0px, transparent 50%);
+}
+
+.lumina-grid-pattern {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+}
+
+.lumina-dot-pattern {
+  background-image: radial-gradient(rgba(79, 70, 229, 0.14) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.lumina-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.lumina-dark-glass {
+  background: rgba(15, 23, 42, 0.86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Performant Compositor Animations */
+@keyframes luminaFloat {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes luminaFloatDelayed {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+@keyframes luminaPulseSubtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.03);
+  }
+}
+
+.animate-float {
+  animation: luminaFloat 5.5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: luminaFloatDelayed 6.5s ease-in-out 1.2s infinite;
+}
+
+.animate-pulse-subtle {
+  animation: luminaPulseSubtle 3s ease-in-out infinite;
+}
+
+/* Respect Reduced Motion Accessibility Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-subtle {
+    animation: none !important;
+  }
+}
+
+/* Custom scrollbar styling for dense workspaces */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}

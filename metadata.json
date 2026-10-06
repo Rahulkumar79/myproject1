@@ -1,0 +1,6 @@
+{
+  "name": "Lumina Scholar — AI Learning Assistant",
+  "description": "A production-grade personalized AI digital tutor, RAG document workspace, adaptive study planner, quiz engine, and learning analytics platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
